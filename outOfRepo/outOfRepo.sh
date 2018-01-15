@@ -44,10 +44,11 @@ else
 			sudo python3 electrum-master/setup.py install
 			notify-send "Electron installed";
 		elif
-			[ "$CONT" = "sf" ]; then
+			[ "$CONT" = "f" ]; then
 			sudo apt-get install python3-pyqt5 &&\
 			wget https://github.com/fyookball/electrum/archive/master.zip &&\
 			unzip master.zip &&\
+			echo -e "Electron installed" &&\
 			notify-send "Electron installed";
 		else :
 		fi
@@ -55,6 +56,21 @@ else
 fi
 
 
+# touchegg
+
+read -p "Install touchegg (y/n)? " CONT
+if [ "$CONT" = "y" ]; then
+  sudo apt-get install build-essential libqt4-dev utouch libgeis-dev libx11-6 libxtst-dev &&\
+  wget https://github.com/JoseExposito/touchegg/archive/master.zip &&\
+  unzip master.zip &&\
+  pushd touchegg-master/ &&\
+  qmake && make && make install &&\
+  popd &&\
+  echo -e "touchegg installed" &&\
+  notify-send "touchegg installed";
+else
+  echo "ok, no touchegg"; 
+fi
 
 
 # OBmenu-generator
