@@ -8,6 +8,10 @@ if syncthing --version >/dev/null 2>&1; then
 else
     read -p "install syncthing (y/n)?" CONT
 	if [ "$CONT" = "y" ]; then
+			if curl --version >/dev/null 2>&1; then
+			echo "You already have curl. Good."
+			else sudo apt-get install curl
+			fi
 		curl -s https://syncthing.net/release-key.txt | sudo apt-key add - &&\ 
 		echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing.list &&\
 		sudo apt-get update && sudo apt-get install syncthing &&\

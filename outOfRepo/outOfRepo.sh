@@ -31,8 +31,8 @@ script/syncthing.sh;
 
 # electron
 
-if youtube-dl --version >/dev/null 2>&1; then
-    echo "Elecron is installed already. Good"
+if electron --version >/dev/null 2>&1; then
+    echo "Electron is installed already. Good"
 else
     read -p "install Electron (y/n)? " CONT
 	if [ "$CONT" = "y" ]; then
@@ -60,7 +60,7 @@ fi
 
 read -p "Install touchegg (y/n)? " CONT
 if [ "$CONT" = "y" ]; then
-  sudo apt-get install build-essential libqt4-dev utouch libgeis-dev libx11-6 libxtst-dev &&\
+  sudo apt-get install build-essential libqt4-dev libgeis-dev libx11-6 libxtst-dev &&\
   wget https://github.com/JoseExposito/touchegg/archive/master.zip &&\
   unzip master.zip &&\
   pushd touchegg-master/ &&\
